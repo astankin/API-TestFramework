@@ -1,0 +1,322 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "products": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "integer"
+            },
+            "reviews": {
+              "type": "array",
+              "items": {}
+            },
+            "name": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "brand": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "null"
+            },
+            "numReviews": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "string"
+            },
+            "countInStock": {
+              "type": "integer"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "user": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "_id",
+            "reviews",
+            "name",
+            "image",
+            "brand",
+            "category",
+            "description",
+            "rating",
+            "numReviews",
+            "price",
+            "countInStock",
+            "createdAt",
+            "user"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "integer"
+            },
+            "reviews": {
+              "type": "array",
+              "items": {}
+            },
+            "name": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "brand": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "null"
+            },
+            "numReviews": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "string"
+            },
+            "countInStock": {
+              "type": "integer"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "user": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "_id",
+            "reviews",
+            "name",
+            "image",
+            "brand",
+            "category",
+            "description",
+            "rating",
+            "numReviews",
+            "price",
+            "countInStock",
+            "createdAt",
+            "user"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "integer"
+            },
+            "reviews": {
+              "type": "array",
+              "items": {}
+            },
+            "name": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "brand": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "null"
+            },
+            "numReviews": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "string"
+            },
+            "countInStock": {
+              "type": "integer"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "user": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "_id",
+            "reviews",
+            "name",
+            "image",
+            "brand",
+            "category",
+            "description",
+            "rating",
+            "numReviews",
+            "price",
+            "countInStock",
+            "createdAt",
+            "user"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "integer"
+            },
+            "reviews": {
+              "type": "array",
+              "items": {}
+            },
+            "name": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "brand": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "null"
+            },
+            "numReviews": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "string"
+            },
+            "countInStock": {
+              "type": "integer"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "user": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "_id",
+            "reviews",
+            "name",
+            "image",
+            "brand",
+            "category",
+            "description",
+            "rating",
+            "numReviews",
+            "price",
+            "countInStock",
+            "createdAt",
+            "user"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "integer"
+            },
+            "reviews": {
+              "type": "array",
+              "items": {}
+            },
+            "name": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string"
+            },
+            "brand": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "rating": {
+              "type": "null"
+            },
+            "numReviews": {
+              "type": "integer"
+            },
+            "price": {
+              "type": "string"
+            },
+            "countInStock": {
+              "type": "integer"
+            },
+            "createdAt": {
+              "type": "string"
+            },
+            "user": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "_id",
+            "reviews",
+            "name",
+            "image",
+            "brand",
+            "category",
+            "description",
+            "rating",
+            "numReviews",
+            "price",
+            "countInStock",
+            "createdAt",
+            "user"
+          ]
+        }
+      ]
+    },
+    "page": {
+      "type": "integer"
+    },
+    "pages": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "products",
+    "page",
+    "pages"
+  ]
+}
