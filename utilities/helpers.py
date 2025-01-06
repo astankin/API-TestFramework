@@ -1,6 +1,9 @@
 import random
 import string
 
+import requests
+from requests import RequestException
+
 
 def generate_random_name():
     def random_string(length):
@@ -31,3 +34,33 @@ def generate_random_email():
     domain = random.choice(email_domains)
     email = f"{username}@{domain}"
     return email
+
+def get_user_token(username=None, password=None):
+    if not username or not password:
+        raise ValueError("Username and password must be provided.")
+
+    url = "http://127.0.0.1:8000/api/users/login/"
+    credentials = {
+        "username": username,
+        "password": password
+    }
+
+    try:
+        response = requests.post(url, data=credentials, timeout=10)
+        response.raise_for_status()  # Raise an exception for HTTP errors
+
+        data = response.json()  # Parse the JSON response
+        token = data.get("token")
+
+        if not token:
+            raise ValueError("Token not found in the response.")
+
+        return token
+
+    except RequestException as e:
+        print(f"Error making request to {url}: {e}")
+        raise
+    except ValueError as e:
+        print(f"Error: {e}")
+        raise
+

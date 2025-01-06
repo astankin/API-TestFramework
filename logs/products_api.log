@@ -1,0 +1,24 @@
+2025-01-03 20:24:26,103 - test_logger - INFO - *** Starting test: test_get_products_list ***
+2025-01-03 20:24:26,103 - test_logger - INFO - Sending GET request to products
+2025-01-03 20:24:26,139 - test_logger - INFO - Validating response status code
+2025-01-03 20:24:26,139 - test_logger - INFO - Validating response all products json schema
+2025-01-03 20:24:26,153 - test_logger - INFO - *** Test test_get_products_list completed successfully ***
+2025-01-04 18:09:06,909 - test_logger - INFO - *** Starting test: test_get_products_list ***
+2025-01-04 18:09:06,910 - test_logger - INFO - Sending GET request to products
+2025-01-04 18:09:07,006 - test_logger - INFO - Validating response status code
+2025-01-04 18:09:07,007 - test_logger - INFO - Validating response all products json schema
+2025-01-04 18:09:07,060 - test_logger - INFO - *** Test test_get_products_list completed successfully ***
+2025-01-04 18:10:25,090 - test_logger - INFO - *** Starting test: test_get_products_list ***
+2025-01-04 18:10:25,091 - test_logger - INFO - Sending GET request to products
+2025-01-04 18:10:25,126 - test_logger - INFO - Validating response status code
+2025-01-04 18:10:25,127 - test_logger - INFO - Validating response all products json schema
+2025-01-04 18:10:25,147 - test_logger - INFO - *** Test test_get_products_list completed successfully ***
+2025-01-04 18:10:25,157 - test_logger - INFO - *** Starting test: test_get_product_by_id ***
+2025-01-04 18:10:25,158 - test_logger - INFO - Sending GET request to products1
+2025-01-04 18:10:25,184 - test_logger - INFO - Validating response status code
+2025-01-04 18:10:25,185 - test_logger - INFO - Validating response headers
+2025-01-04 18:10:25,185 - test_logger - INFO - Validating response time
+2025-01-04 18:10:25,185 - test_logger - INFO - Validating response product json schema
+2025-01-04 18:10:25,190 - test_logger - INFO - Validating response data fields type
+2025-01-04 18:10:25,191 - test_logger - INFO - Validating response fields value
+2025-01-04 18:10:25,194 - test_logger - INFO - *** Test test_get_product_by_id completed successfully ***

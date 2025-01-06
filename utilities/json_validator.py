@@ -29,7 +29,6 @@ class ResponseValidator:
         :param max_response_time_ms: The maximum allowable response time in milliseconds.
         """
         response_time_ms = response.elapsed.total_seconds() * 1000
-        print(f"Response time: {response_time_ms:.2f} ms")
         assert response_time_ms <= max_response_time_ms, (
             f"Response time exceeded the limit! "
             f"Expected <= {max_response_time_ms} ms, but got {response_time_ms:.2f} ms."
