@@ -15,6 +15,7 @@ class TestProductAPI:
     product_id = 1
     product_schema = load_json_schema("product_schema.json")
     all_product_schema = load_json_schema("all_products_schema.json")
+
     def test_get_products_list(self):
         headers = {'Content-Type': 'application/json'}
         self.logger.info("*** Starting test: test_get_products_list ***")
@@ -45,6 +46,35 @@ class TestProductAPI:
                                     endpoint=f'{self.products_endpoint}/{self.product_id}',
                                     headers=headers
                                     )
+            expected_fields = {
+                                "_id": int,
+                                "reviews": list,
+                                "name": str,
+                                "image": str,
+                                "brand": str,
+                                "category": str,
+                                "description": str,
+                                "rating": str,
+                                "numReviews": int,
+                                "price": str,
+                                "countInStock": int,
+                                "createdAt": str,
+                                "user": int
+                            }
+            expected_values = {
+                                "_id": 1,
+                                "name": "Airpods Wireless Bluetooth Headphones",
+                                "image": "/images/airpods_rueLkRx.jpg",
+                                "brand": "Apple",
+                                "category": "Electronics",
+                                "description": "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
+                                "rating": "3.00",
+                                "numReviews": 2,
+                                "price": "1998.99",
+                                "countInStock": 18,
+                                "createdAt": "2024-08-13T19:30:16.537131Z",
+                                "user": 1
+                                }
             self.logger.info("Validating response status code")
             assert response.status_code == 200, "Expected 200 OK status code"
             self.logger.info("Validating response headers")
@@ -55,38 +85,17 @@ class TestProductAPI:
             ResponseValidator.validate_json_schema(response=response, schema=self.product_schema)
             self.logger.info("Validating response data fields type")
             ResponseValidator.validate_data_type(response=response,
-                                                 field_validations={
-                                                     "_id": int,
-                                                     "reviews": list,
-                                                     "name": str,
-                                                     "image": str,
-                                                     "brand": str,
-                                                     "category": str,
-                                                     "description": str,
-                                                     "rating": str,
-                                                     "numReviews": int,
-                                                     "price": str,
-                                                     "countInStock": int,
-                                                     "createdAt": str,
-                                                     "user": int
-                                                 })
+                                                 field_validations=expected_fields)
             self.logger.info("Validating response fields value")
             ResponseValidator.validate_field_value(response=response,
-                                                   field_validations={
-                                                     "_id": 1,
-                                                     "name": "Airpods Wireless Bluetooth Headphones",
-                                                     "image": "/images/airpods_rueLkRx.jpg",
-                                                     "brand": "Apple",
-                                                     "category": "Electronics",
-                                                     "description": "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
-                                                     "rating": "3.00",
-                                                     "numReviews": 2,
-                                                     "price": "1998.99",
-                                                     "countInStock": 18,
-                                                     "createdAt": "2024-08-13T19:30:16.537131Z",
-                                                     "user": 1
-                                                 })
+                                                   field_validations=expected_values)
             self.logger.info("*** Test test_get_product_by_id completed successfully ***")
         except Exception as e:
             self.logger.info("*** Test test_get_product_by_id Failed ***")
             pytest.fail(f"Test failed due to exception: {e}")
+
+    def test_create_product(self):
+        pass
+
+    def test_edit_product(self):
+        pass

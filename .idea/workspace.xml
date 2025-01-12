@@ -47,6 +47,7 @@
     "Python tests.Python tests for test_001_products_api.TestProductAPI.test_get_products_list.executor": "Run",
     "Python tests.Python tests for test_002_user_api.TestUserAPI.test_create_user.executor": "Run",
     "Python tests.Python tests for test_002_user_api.TestUserAPI.test_get_users.executor": "Run",
+    "Python tests.pytest for test_001_products_api.TestProductAPI.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_create_user.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_create_user_with_duplicate_email.executor": "Run",
@@ -75,7 +76,7 @@
       <recent name="C:\Users\user\Documents\QA\API-Testing\API-Test-Framework\API_tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_002_user_api.TestUserAPI">
+  <component name="RunManager" selected="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_users">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
@@ -96,6 +97,23 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_001_products_api.TestProductAPI" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="API-Test-Framework" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_001_products_api.TestProductAPI&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="pytest for test_002_user_api.TestUserAPI" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
@@ -132,7 +150,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_002_user_api.TestUserAPI.test_delete_user" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,11 +163,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_delete_user&quot;" />
+      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_get_user_with_invalid_id&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_002_user_api.TestUserAPI.test_edit_user_with_invalid_data" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_002_user_api.TestUserAPI.test_get_users" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -162,34 +180,17 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_edit_user_with_invalid_data&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_002_user_api.TestUserAPI.test_edit_user_with_valid_data" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="API-Test-Framework" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_edit_user_with_valid_data&quot;" />
+      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_get_users&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_users" />
         <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI" />
+        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id" />
+        <item itemvalue="Python tests.pytest for test_001_products_api.TestProductAPI" />
         <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_delete_non_existent_user" />
-        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_delete_user" />
-        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_edit_user_with_invalid_data" />
-        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_edit_user_with_valid_data" />
       </list>
     </recent_temporary>
   </component>
@@ -244,37 +245,37 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_001_products_api.py</url>
-          <line>54</line>
+          <line>84</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_001_products_api.py</url>
-          <line>19</line>
+          <line>20</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>179</line>
+          <line>210</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>181</line>
+          <line>212</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>222</line>
+          <line>262</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>235</line>
+          <line>280</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>209</line>
+          <line>245</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -284,7 +285,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>103</line>
+          <line>115</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>

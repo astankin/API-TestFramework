@@ -14,16 +14,16 @@ class TestUserAPI:
     get_user_endpoint = "users/"
     delete_user_endpoint = "users/delete/"
     admin_bearer_token = ReadConfig.get_admin_token()
-    logger = setup_logger(log_file_path="../logs/products_api.log")
+    logger = setup_logger(log_file_path="../logs/user_api.log")
 
     @pytest.fixture()
     def create_user(self):
         """ Fixture to create a new user and return its details. """
-
         name = generate_random_name()
         email = generate_random_email()
         password = generate_random_password()
         payload = {"name": name, "email": email, "password": password}
+        self.logger.info(f"Creating User {payload}")
         response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
         if response.status_code != 200: pytest.fail(
             f"User creation failed with status {response.status_code}: {response.text}")
@@ -51,8 +51,9 @@ class TestUserAPI:
 
     def test_get_users(self, base_url):
         headers = {**self.BASE_HEADERS, "Authorization": self.admin_bearer_token}
-
+        self.logger.info("*** Starting test_get_users ***")
         try:
+            self.logger.info("Sending GET request")
             response = send_request(method="GET",
                                     endpoint=self.all_users_endpoint,
                                     headers=headers
@@ -60,14 +61,18 @@ class TestUserAPI:
             assert response.status_code == 200, "Expected 200 OK status code"
             ResponseValidator.validate_response_headers(response, expected_content_type="application/json")
             ResponseValidator.validate_response_time(response)
-
+            self.logger.info("Test PASS")
         except Exception as e:
+            self.logger.info("Test FAIL")
             pytest.fail(f"Test failed due to exception: {e}")
+        finally:
+            self.logger.info("*** Test Finished ***")
 
     def test_get_user_by_id(self, create_user):
         """
         Tests retrieving a user by ID and ensures that the user exists with correct details.
         """
+        self.logger.info("*** Start test_get_user_by_id ***")
         name = create_user['name']
         username = create_user['email']
         email = create_user['email']
@@ -75,6 +80,7 @@ class TestUserAPI:
         headers = {**self.BASE_HEADERS, "Authorization": self.admin_bearer_token}
 
         try:
+            self.logger.info("Sending GET request")
             response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}{user_id}", headers=headers)
             assert response.status_code == 200, f"Expected 200 OK, got {response.status_code}"
             ResponseValidator.validate_response_headers(response, expected_content_type="application/json")
@@ -97,18 +103,28 @@ class TestUserAPI:
 
             ResponseValidator.validate_data_type(response=response, field_validations=expected_fields)
             ResponseValidator.validate_field_value(response=response, field_validations=expected_values)
+            self.logger.info("Test PASS")
+        except Exception as e:
+            self.logger.info("Test FAIL")
+            pytest.fail(f"Test failed due to exception: {e}")
         finally:
+            self.logger.info("Delete user")
             TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
-
+            self.logger.info("*** Test Finished ***")
     def test_get_user_with_invalid_id(self):
+        self.logger.info("*** Starting test_get_user_with_invalid_id ***")
         headers = {"Authorization": self.admin_bearer_token}
         response = None
         try:
             response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}invalid-id", headers=headers)
         except Exception:
+            self.logger.info("Test PASS")
             assert response.status_code == 500, f"Expected 500 Bad Request, got {response.status_code}"
+        finally:
+            self.logger.info("*** Test Finished ***")
 
     def test_create_user(self):
+        self.logger.info("*** Started test_create_user ***")
         name = generate_random_name()
         email = generate_random_email()
         password = generate_random_password()
@@ -119,6 +135,7 @@ class TestUserAPI:
             "password": password
         }
         try:
+            self.logger.info("Sending POST Request")
             response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
             data = response.json()
             new_user_id = data['id']
@@ -126,14 +143,18 @@ class TestUserAPI:
             assert data["name"] == name, f"The response name: {data['name']} should match the payload {name}"
             assert data["username"] == email, f"Response username: {data['username']} should match the payload: {email}"
             assert data["email"] == email, f"Response email: {data['email']} should match the payload: {email}"
+            self.logger.info("Test PASS")
         except Exception as e:
+            self.logger.info("Test FAIL")
             pytest.fail(f"Test failed due to exception: {e}")
         finally:
             if new_user_id:
+                self.logger.info("Delete new user")
                 TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=new_user_id, endpoint=self.delete_user_endpoint)
-
+            self.logger.info("*** Test Finished ***")
 
     def test_create_user_with_duplicate_email(self, create_user):
+        self.logger.info("*** Starting test_create_user_with_duplicate_email ***")
         payload = {
             "name": "Duplicate User",
             "email": create_user["email"],
@@ -142,17 +163,22 @@ class TestUserAPI:
         response = None
         user_id = create_user['id']
         try:
+            self.logger.info("Sending POST request")
             response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
         except Exception:
             assert response.status_code == 400, f"Expected 400 Bad Request, got {response.status_code}"
             data = response.json()
             user_id = data['id']
             assert "User with this email already exists" == data['detail'], "Error message should include details about the duplicate email"
+            self.logger.info("TEST PASS")
         finally:
+            self.logger.info("Delete new user")
             if user_id:
                 TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
+            self.logger.info("*** Test Finished ***")
 
     def test_create_user_with_invalid_email(self):
+        self.logger.info("*** Starting  test_create_user_with_invalid_email ***")
         payload = {
             "name": "Invalid Email",
             "email": generate_random_name(),
@@ -160,21 +186,26 @@ class TestUserAPI:
         }
         user_id = None
         try:
+            self.logger.info("Sending POST request")
             response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
             data = response.json()
             if response.status_code == 200:
                 user_id = data['id']
             assert response.status_code == 400, f"Expected 400 Bad Request, got {response.status_code}"
             assert "email" in data, "Error message should mention invalid email format"
+            self.logger.info("Test PASS")
         except Exception as e:
+            self.logger.info("Test FAIL")
             pytest.fail(f"Test failed due to exception: {e}")
         finally:
             if user_id:
+                self.logger.info("Delete new user")
                 TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
-
+            self.logger.info("*** Test Finished ***")
 
 
     def test_edit_user_with_valid_data(self, create_user):
+        self.logger.info("*** Starting test_edit_user_with_valid_data ***")
         user_id = create_user['id']
         username = create_user['email']
         password = create_user['password']
@@ -191,35 +222,44 @@ class TestUserAPI:
             "password": "",
         }
         try:
+            self.logger.info("Sending PUT request")
             response = send_request(method="PUT", endpoint=self.edit_user_endpoint, headers=header, payload=payload)
             data = response.json()
             assert response.status_code == 200, "Expected 200 Created status code"
             assert data["name"] == edited_name, f"The response name: {data['name']} should match the payload {edited_name}"
             assert data["username"] == email, f"Response username: {data['username']} should match the payload: {email}"
             assert data["email"] == email, f"Response email: {data['email']} should match the payload: {email}"
+            self.logger.info("Test PASS")
         except Exception as e:
             pytest.fail(f"Test failed due to exception: {e}")
+            self.logger.info("Test FAIL")
         finally:
             if user_id:
+                self.logger.info("Delete new user")
                 TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
-
+            self.logger.info("*** Test Finished ***")
 
     def test_edit_user_with_invalid_data(self, create_user):
+        self.logger.info("*** Starting test_edit_user_with_invalid_data ***")
         user_id = create_user['id']
         user_token = get_user_token(username=create_user["email"], password=create_user["password"])
         headers = {"Authorization": f"Bearer {user_token}"}
         payload = {"name": ""}
         response = None
         try:
+            self.logger.info("Sending PUT request")
             response = send_request(method="PUT", endpoint=self.edit_user_endpoint, headers=headers, payload=payload)
         except Exception:
+            self.logger.info("Test PASS")
             assert response.status_code == 500, f"Expected 500 Bad Request, got {response.status_code}"
         finally:
             if user_id:
+                self.logger.info("Delete new user")
                 TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
-
+            self.logger.info("*** Test Finished ***")
 
     def test_delete_user(self, create_user):
+        self.logger.info("*** Starting test_delete_user ***")
         user_id = create_user['id']
         headers = {
             "Content-Type": "application/json",
@@ -227,19 +267,29 @@ class TestUserAPI:
         }
         end_point = f"{self.delete_user_endpoint}{user_id}/"
         try:
+            self.logger.info("Sending DELETE request")
             delete_response = send_request(method="DELETE", endpoint=end_point, headers=headers)
             message = delete_response.json()
             assert delete_response.status_code in [200, 204], "Expected 200 Created status code"
             assert message == "User was deleted"
+            self.logger.info("Test PASS")
         except Exception as e:
+            self.logger.info("Test FALL")
             pytest.fail(f"Test failed due to exception: {e}")
+        finally:
+            self.logger.info("*** Test Finished ***")
 
     def test_delete_non_existent_user(self):
+        self.logger.info("*** Starting test_delete_non_existent_user ***")
         non_existent_user_id = 99999
         headers = {"Authorization": self.admin_bearer_token}
         endpoint = f"{self.delete_user_endpoint}{non_existent_user_id}/"
         try:
+            self.logger.info("Sending DELETE request")
             response = send_request(method="DELETE", endpoint=endpoint, headers=headers)
         except Exception:
             assert response.status_code == 500, f"Expected 500 Not Found, got {response.status_code}"
+            self.logger.info("Test PASS ***")
+        finally:
+            self.logger.info("*** Test Finished ***")
 
