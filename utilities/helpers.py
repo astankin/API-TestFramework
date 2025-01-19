@@ -1,8 +1,11 @@
 import random
 import string
 
+import pytest
 import requests
 from requests import RequestException
+
+from utilities.request_handler import send_request
 
 
 def generate_random_name():
@@ -63,4 +66,6 @@ def get_user_token(username=None, password=None):
     except ValueError as e:
         print(f"Error: {e}")
         raise
+
+
 

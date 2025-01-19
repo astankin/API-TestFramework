@@ -4,32 +4,19 @@ from utilities.json_validator import ResponseValidator
 from utilities.logger import setup_logger
 from utilities.read_config import ReadConfig
 from utilities.request_handler import send_request
+from utilities.fixtures import create_user
 
 
 class TestUserAPI:
     BASE_HEADERS = {"Content-Type": "application/json"}
-    all_users_endpoint = "users"
-    register_user_endpoint = "users/register/"
-    edit_user_endpoint = "users/profile/update/"
-    get_user_endpoint = "users/"
-    delete_user_endpoint = "users/delete/"
+    all_users_endpoint = ReadConfig.get_users_endpoint()
+    register_user_endpoint = ReadConfig.get_register_user_endpoint()
+    edit_user_endpoint = ReadConfig.get_edit_user_endpoint()
+    get_user_endpoint = ReadConfig.get_users_endpoint()
+    delete_user_endpoint = ReadConfig.get_delete_user_endpoint()
     admin_bearer_token = ReadConfig.get_admin_token()
-    logger = setup_logger(log_file_path="../logs/user_api.log")
+    logger = setup_logger(log_file_path=ReadConfig.get_logs_users_path())
 
-    @pytest.fixture()
-    def create_user(self):
-        """ Fixture to create a new user and return its details. """
-        name = generate_random_name()
-        email = generate_random_email()
-        password = generate_random_password()
-        payload = {"name": name, "email": email, "password": password}
-        self.logger.info(f"Creating User {payload}")
-        response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
-        if response.status_code != 200: pytest.fail(
-            f"User creation failed with status {response.status_code}: {response.text}")
-        data = response.json()
-        user_details = {"name": name, "email": email, "password": password, "id": data["id"]}
-        return user_details
 
     @staticmethod
     def tear_down(admin_token, user_id, endpoint):
@@ -56,7 +43,8 @@ class TestUserAPI:
             self.logger.info("Sending GET request")
             response = send_request(method="GET",
                                     endpoint=self.all_users_endpoint,
-                                    headers=headers
+                                    headers=headers,
+                                    logger=self.logger
                                     )
             assert response.status_code == 200, "Expected 200 OK status code"
             ResponseValidator.validate_response_headers(response, expected_content_type="application/json")
@@ -81,7 +69,7 @@ class TestUserAPI:
 
         try:
             self.logger.info("Sending GET request")
-            response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}{user_id}", headers=headers)
+            response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}/{user_id}", headers=headers, logger=self.logger)
             assert response.status_code == 200, f"Expected 200 OK, got {response.status_code}"
             ResponseValidator.validate_response_headers(response, expected_content_type="application/json")
             ResponseValidator.validate_response_time(response)
@@ -111,12 +99,13 @@ class TestUserAPI:
             self.logger.info("Delete user")
             TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
             self.logger.info("*** Test Finished ***")
+
     def test_get_user_with_invalid_id(self):
         self.logger.info("*** Starting test_get_user_with_invalid_id ***")
         headers = {"Authorization": self.admin_bearer_token}
         response = None
         try:
-            response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}invalid-id", headers=headers)
+            response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}invalid-id", headers=headers, logger=self.logger)
         except Exception:
             self.logger.info("Test PASS")
             assert response.status_code == 500, f"Expected 500 Bad Request, got {response.status_code}"
@@ -136,7 +125,7 @@ class TestUserAPI:
         }
         try:
             self.logger.info("Sending POST Request")
-            response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
+            response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload, logger=self.logger)
             data = response.json()
             new_user_id = data['id']
             assert response.status_code == 200, "Expected 200 Created status code"
@@ -164,7 +153,7 @@ class TestUserAPI:
         user_id = create_user['id']
         try:
             self.logger.info("Sending POST request")
-            response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
+            response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload, logger=self.logger)
         except Exception:
             assert response.status_code == 400, f"Expected 400 Bad Request, got {response.status_code}"
             data = response.json()
@@ -187,7 +176,7 @@ class TestUserAPI:
         user_id = None
         try:
             self.logger.info("Sending POST request")
-            response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload)
+            response = send_request(method="POST", endpoint=self.register_user_endpoint, payload=payload, logger=self.logger)
             data = response.json()
             if response.status_code == 200:
                 user_id = data['id']
@@ -223,7 +212,7 @@ class TestUserAPI:
         }
         try:
             self.logger.info("Sending PUT request")
-            response = send_request(method="PUT", endpoint=self.edit_user_endpoint, headers=header, payload=payload)
+            response = send_request(method="PUT", endpoint=self.edit_user_endpoint, headers=header, payload=payload, logger=self.logger)
             data = response.json()
             assert response.status_code == 200, "Expected 200 Created status code"
             assert data["name"] == edited_name, f"The response name: {data['name']} should match the payload {edited_name}"
@@ -248,7 +237,7 @@ class TestUserAPI:
         response = None
         try:
             self.logger.info("Sending PUT request")
-            response = send_request(method="PUT", endpoint=self.edit_user_endpoint, headers=headers, payload=payload)
+            response = send_request(method="PUT", endpoint=self.edit_user_endpoint, headers=headers, payload=payload, logger=self.logger)
         except Exception:
             self.logger.info("Test PASS")
             assert response.status_code == 500, f"Expected 500 Bad Request, got {response.status_code}"
@@ -268,7 +257,7 @@ class TestUserAPI:
         end_point = f"{self.delete_user_endpoint}{user_id}/"
         try:
             self.logger.info("Sending DELETE request")
-            delete_response = send_request(method="DELETE", endpoint=end_point, headers=headers)
+            delete_response = send_request(method="DELETE", endpoint=end_point, headers=headers, logger=self.logger)
             message = delete_response.json()
             assert delete_response.status_code in [200, 204], "Expected 200 Created status code"
             assert message == "User was deleted"
@@ -286,7 +275,7 @@ class TestUserAPI:
         endpoint = f"{self.delete_user_endpoint}{non_existent_user_id}/"
         try:
             self.logger.info("Sending DELETE request")
-            response = send_request(method="DELETE", endpoint=endpoint, headers=headers)
+            response = send_request(method="DELETE", endpoint=endpoint, headers=headers, logger=self.logger)
         except Exception:
             assert response.status_code == 500, f"Expected 500 Not Found, got {response.status_code}"
             self.logger.info("Test PASS ***")

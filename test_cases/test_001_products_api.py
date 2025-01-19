@@ -1,17 +1,17 @@
-import json
-from datetime import datetime
 
 import pytest
+from selenium.webdriver.common.bidi.cdp import logger
 
 from utilities.json_validator import  ResponseValidator
 from utilities.logger import setup_logger
+from utilities.read_config import ReadConfig
 from utilities.request_handler import send_request
 from utilities.schema_loader import load_json_schema
 
 
 class TestProductAPI:
-    logger = setup_logger(log_file_path="../logs/products_api.log")
-    products_endpoint = 'products'
+    logger = setup_logger(log_file_path=ReadConfig.get_logs_product_path())
+    products_endpoint = ReadConfig.get_products_endpoint()
     product_id = 1
     product_schema = load_json_schema("product_schema.json")
     all_product_schema = load_json_schema("all_products_schema.json")
@@ -23,7 +23,8 @@ class TestProductAPI:
             self.logger.info(f"Sending GET request to {self.products_endpoint}")
             response = send_request(method="GET",
                                     endpoint=self.products_endpoint,
-                                    headers=headers
+                                    headers=headers,
+                                    logger=self.logger
                                     )
             self.logger.info("Validating response status code")
             assert response.status_code == 200, "Expected 200 OK status code"
@@ -44,7 +45,8 @@ class TestProductAPI:
             self.logger.info(f"Sending GET request to {self.products_endpoint}{self.product_id}")
             response = send_request(method="GET",
                                     endpoint=f'{self.products_endpoint}/{self.product_id}',
-                                    headers=headers
+                                    headers=headers,
+                                    logger=self.logger
                                     )
             expected_fields = {
                                 "_id": int,
@@ -95,7 +97,34 @@ class TestProductAPI:
             pytest.fail(f"Test failed due to exception: {e}")
 
     def test_create_product(self):
-        pass
+        headers = {'Content-Type': 'application/json'}
+        payload = {
+            "name": "Test Product",
+            "image": "/images/test_product.jpg",
+            "brand": "Test Brand",
+            "category": "Test Category",
+            "description": "This is a test product description.",
+            "price": "123.45",
+            "countInStock": 10
+        }
+        self.logger.info("*** Starting test: test_create_product ***")
+        try:
+            self.logger.info(f"Sending POST request to {self.products_endpoint}")
+            response = send_request(method="POST",
+                                    endpoint=self.products_endpoint,
+                                    headers=headers,
+                                    payload=payload,
+                                    logger=self.logger,
+                                    )
+            self.logger.info("Validating response status code")
+            assert response.status_code == 200, "Expected 200 Created status code"
+            self.logger.info("Validating response product json schema")
+            ResponseValidator.validate_json_schema(response=response, schema=self.product_schema)
+            data = response.json()
+            self.logger.info("*** Test test_create_product completed successfully ***")
+        except Exception as e:
+            self.logger.info("*** Test test_create_product Failed ***")
+            pytest.fail(f"Test failed due to exception: {e}")
+        finally:
+            self.logger.info("*** Test Finished ***")
 
-    def test_edit_product(self):
-        pass

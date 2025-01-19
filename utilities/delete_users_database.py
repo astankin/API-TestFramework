@@ -13,7 +13,7 @@ def delete_users():
         cursor = connection.cursor()
 
         # Create a temporary table to store the IDs to keep
-        cursor.execute("CREATE TEMP TABLE temp_ids AS SELECT id FROM auth_user ORDER BY id LIMIT 3")
+        cursor.execute("CREATE TEMP TABLE temp_ids AS SELECT id FROM auth_user ORDER BY id LIMIT 4")
 
         # Delete rows from the main table that are not in the temp_ids table
         cursor.execute(f"""
@@ -59,6 +59,29 @@ def fetch_and_print_users():
         # Close the database connection
         if cursor:
             cursor.close()
+        if connection:
+            connection.close()
+
+def delete_user_by_id(user_id):
+    connection = None
+    try:
+        # Connect to the SQLite database
+        connection = sqlite3.connect(database_path)
+        cursor = connection.cursor()
+
+        # Execute the delete query
+        cursor.execute(f"DELETE FROM {table_name} WHERE id = ?", (user_id,))
+
+        # Commit the changes
+        connection.commit()
+        if cursor.rowcount > 0:
+            print(f"User with ID {user_id} deleted successfully.")
+        else:
+            print(f"No user found with ID {user_id}.")
+    except sqlite3.Error as e:
+        print(f"Database error occurred: {e}")
+    finally:
+        # Ensure resources are cleaned up
         if connection:
             connection.close()
 

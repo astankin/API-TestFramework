@@ -48,6 +48,8 @@
     "Python tests.Python tests for test_002_user_api.TestUserAPI.test_create_user.executor": "Run",
     "Python tests.Python tests for test_002_user_api.TestUserAPI.test_get_users.executor": "Run",
     "Python tests.pytest for test_001_products_api.TestProductAPI.executor": "Run",
+    "Python tests.pytest for test_001_products_api.TestProductAPI.test_create_product.executor": "Debug",
+    "Python tests.pytest for test_001_products_api.TestProductAPI.test_get_products_list.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_create_user.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_create_user_with_duplicate_email.executor": "Run",
@@ -62,6 +64,20 @@
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_get_users.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_user_list_pagination.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_rate_limiting.executor": "Debug",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_deleted_account.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_deleted_user.executor": "Debug",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_empty_password.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_empty_username.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_invalid_credentials.executor": "Debug",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_invalid_password.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_invalid_username.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_missing_password.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_missing_username.executor": "Debug",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_new_created_user.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_sql_injection.executor": "Run",
+    "Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_valid_credentials.executor": "Run",
     "Python.delete_users_database.executor": "Run",
     "Python.test_001_products.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -76,7 +92,7 @@
       <recent name="C:\Users\user\Documents\QA\API-Testing\API-Test-Framework\API_tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_users">
+  <component name="RunManager" selected="Python tests.pytest for test_003_authentication.TestAuthentication">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
@@ -116,6 +132,23 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for test_001_products_api.TestProductAPI.test_create_product" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="API-Test-Framework" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_001_products_api.TestProductAPI.test_create_product&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest for test_002_user_api.TestUserAPI" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
@@ -133,7 +166,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_002_user_api.TestUserAPI.test_delete_non_existent_user" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_003_authentication.TestAuthentication" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -146,11 +179,11 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_delete_non_existent_user&quot;" />
+      <option name="_new_target" value="&quot;test_003_authentication.TestAuthentication&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+    <configuration name="pytest for test_003_authentication.TestAuthentication.test_login_with_deleted_user" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,34 +196,17 @@
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_get_user_with_invalid_id&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_002_user_api.TestUserAPI.test_get_users" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="API-Test-Framework" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_get_users&quot;" />
+      <option name="_new_target" value="&quot;test_003_authentication.TestAuthentication.test_login_with_deleted_user&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_users" />
+        <item itemvalue="Python tests.pytest for test_003_authentication.TestAuthentication" />
+        <item itemvalue="Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_deleted_user" />
         <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI" />
-        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id" />
+        <item itemvalue="Python tests.pytest for test_001_products_api.TestProductAPI.test_create_product" />
         <item itemvalue="Python tests.pytest for test_001_products_api.TestProductAPI" />
-        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_delete_non_existent_user" />
       </list>
     </recent_temporary>
   </component>
@@ -244,49 +260,29 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_001_products_api.py</url>
-          <line>84</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_001_products_api.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>210</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>212</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>262</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>280</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>245</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/utilities/delete_users_database.py</url>
           <line>11</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
-          <line>115</line>
-          <option name="timeStamp" value="36" />
+          <url>file://$PROJECT_DIR$/test_cases/test_001_products_api.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_cases/test_001_products_api.py</url>
+          <line>112</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_cases/test_003_authentication.py</url>
+          <line>272</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utilities/request_handler.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

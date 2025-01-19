@@ -1,0 +1,69 @@
+2025-01-19 19:24:48,987 - test_logger - INFO - *** Starting Test test_login_with_valid_credentials ***
+2025-01-19 19:24:48,988 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:50,376 - test_logger - INFO - Test PASS
+2025-01-19 19:24:50,377 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:50,382 - test_logger - INFO - *** Starting Test test_login_with_invalid_username ***
+2025-01-19 19:24:50,382 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:51,879 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:24:51,881 - test_logger - INFO - Test PASS
+2025-01-19 19:24:51,882 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:51,891 - test_logger - INFO - *** Starting Test test_login_with_invalid_password ***
+2025-01-19 19:24:51,892 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:53,329 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:24:53,330 - test_logger - INFO - Test PASS
+2025-01-19 19:24:53,330 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:53,337 - test_logger - INFO - *** Starting Test test_login_with_empty_username ***
+2025-01-19 19:24:53,338 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:53,360 - test_logger - ERROR - HTTP error occurred: 400 Client Error: Bad Request for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:24:53,361 - test_logger - INFO - Test PASS
+2025-01-19 19:24:53,361 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:53,367 - test_logger - INFO - *** Starting Test test_login_with_missing_username ***
+2025-01-19 19:24:53,368 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:53,378 - test_logger - ERROR - HTTP error occurred: 400 Client Error: Bad Request for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:24:53,378 - test_logger - INFO - Test PASS
+2025-01-19 19:24:53,378 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:53,384 - test_logger - INFO - *** Starting Test test_login_with_empty_password ***
+2025-01-19 19:24:53,384 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:53,406 - test_logger - ERROR - HTTP error occurred: 400 Client Error: Bad Request for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:24:53,406 - test_logger - INFO - Test PASS
+2025-01-19 19:24:53,407 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:53,414 - test_logger - INFO - *** Starting Test test_login_with_missing_username ***
+2025-01-19 19:24:53,415 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:53,438 - test_logger - ERROR - HTTP error occurred: 400 Client Error: Bad Request for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:24:53,438 - test_logger - INFO - Test PASS
+2025-01-19 19:24:53,438 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:54,880 - test_logger - INFO - Sending POST request
+2025-01-19 19:24:56,350 - test_logger - INFO - Test PASS
+2025-01-19 19:24:56,351 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:24:57,788 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:00,607 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:00,608 - test_logger - INFO - Test PASS
+2025-01-19 19:25:00,608 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:25:00,614 - test_logger - INFO - *** Starting Test test_login_with_sql_injection ***
+2025-01-19 19:25:00,615 - test_logger - INFO - Sending POST request with SQL injection payload
+2025-01-19 19:25:02,086 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:02,087 - test_logger - INFO - Test PASS - SQL injection attempt blocked
+2025-01-19 19:25:02,087 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:25:02,092 - test_logger - INFO - *** Starting Test test_login_rate_limiting ***
+2025-01-19 19:25:02,092 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:03,569 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:03,570 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:04,953 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:04,954 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:06,361 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:06,364 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:07,729 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:07,729 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:09,159 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:09,160 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:10,589 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:10,589 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:11,981 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:11,982 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:13,379 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:13,380 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:15,015 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:15,016 - test_logger - INFO - Sending POST request
+2025-01-19 19:25:16,612 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/login/
+2025-01-19 19:25:16,613 - test_logger - INFO - Test PASS
+2025-01-19 19:25:16,613 - test_logger - INFO - *** Test Finished ***
