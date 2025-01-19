@@ -1,4 +1,6 @@
 import pytest
+
+from utilities.delete_users_database import delete_users
 from utilities.helpers import generate_random_name, generate_random_password, generate_random_email, get_user_token
 from utilities.json_validator import ResponseValidator
 from utilities.logger import setup_logger
@@ -100,17 +102,43 @@ class TestUserAPI:
             TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
             self.logger.info("*** Test Finished ***")
 
+    def test_get_user_with_by_id_with_no_admin_token(self, create_user):
+        self.logger.info("*** Starting test_get_user_with_invalid_id ***")
+        headers = {"Authorization": ""}
+        user_id = create_user['id']
+        expected_response = {
+                            "detail": "Authentication credentials were not provided."
+                        }
+        try:
+            response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}/{user_id}", headers=headers, logger=self.logger)
+            assert response.status_code == 401, f"Expected 401 Unauthorized, got {response.status_code}"
+            data = response.json()
+            assert "detail" in data
+            assert data['detail'] == "Authentication credentials were not provided."
+            ResponseValidator.validate_field_value(response=response, field_validations=expected_response)
+            self.logger.info("Test PASS")
+        except Exception as ex:
+            self.logger.info("Test FAIL")
+            pytest.fail(f"Test failed due to exception: {ex}")
+        finally:
+            self.logger.info("Delete user")
+            TestUserAPI.tear_down(admin_token=self.admin_bearer_token, user_id=user_id, endpoint=self.delete_user_endpoint)
+            self.logger.info("*** Test Finished ***")
+
     def test_get_user_with_invalid_id(self):
         self.logger.info("*** Starting test_get_user_with_invalid_id ***")
         headers = {"Authorization": self.admin_bearer_token}
         response = None
         try:
-            response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}invalid-id", headers=headers, logger=self.logger)
-        except Exception:
-            self.logger.info("Test PASS")
+            response = send_request(method="GET", endpoint=f"{self.get_user_endpoint}/invalid-id", headers=headers, logger=self.logger)
             assert response.status_code == 500, f"Expected 500 Bad Request, got {response.status_code}"
+            self.logger.info("Test PASS")
+        except Exception as ex:
+            self.logger.info("Test FAIL")
+            pytest.fail(f"Test failed due to exception: {ex}")
         finally:
             self.logger.info("*** Test Finished ***")
+
 
     def test_create_user(self):
         self.logger.info("*** Started test_create_user ***")

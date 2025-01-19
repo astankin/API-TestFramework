@@ -61,6 +61,7 @@
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_edit_user_with_valid_data.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_bearer_token.executor": "Debug",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_by_id.executor": "Run",
+    "Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_by_id_with_no_admin_token.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_get_users.executor": "Run",
     "Python tests.pytest for test_002_user_api.TestUserAPI.test_user_list_pagination.executor": "Run",
@@ -92,7 +93,7 @@
       <recent name="C:\Users\user\Documents\QA\API-Testing\API-Test-Framework\API_tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_003_authentication.TestAuthentication">
+  <component name="RunManager" selected="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_by_id_with_no_admin_token">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
@@ -115,40 +116,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest for test_001_products_api.TestProductAPI" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="API-Test-Framework" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_001_products_api.TestProductAPI&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for test_001_products_api.TestProductAPI.test_create_product" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="API-Test-Framework" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_001_products_api.TestProductAPI.test_create_product&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
     <configuration name="pytest for test_002_user_api.TestUserAPI" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="API-Test-Framework" />
       <option name="ENV_FILES" value="" />
@@ -163,6 +130,40 @@
       <option name="_new_parameters" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_002_user_api.TestUserAPI.test_get_user_with_by_id_with_no_admin_token" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="API-Test-Framework" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_get_user_with_by_id_with_no_admin_token&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="API-Test-Framework" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_cases" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_002_user_api.TestUserAPI.test_get_user_with_invalid_id&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -202,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_by_id_with_no_admin_token" />
+        <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI.test_get_user_with_invalid_id" />
         <item itemvalue="Python tests.pytest for test_003_authentication.TestAuthentication" />
         <item itemvalue="Python tests.pytest for test_003_authentication.TestAuthentication.test_login_with_deleted_user" />
         <item itemvalue="Python tests.pytest for test_002_user_api.TestUserAPI" />
-        <item itemvalue="Python tests.pytest for test_001_products_api.TestProductAPI.test_create_product" />
-        <item itemvalue="Python tests.pytest for test_001_products_api.TestProductAPI" />
       </list>
     </recent_temporary>
   </component>
@@ -283,6 +284,16 @@
           <url>file://$PROJECT_DIR$/utilities/request_handler.py</url>
           <line>28</line>
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
+          <line>136</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_cases/test_002_user_api.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

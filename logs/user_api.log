@@ -1,0 +1,37 @@
+2025-01-19 19:32:42,739 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:33:13,911 - test_logger - ERROR - HTTP error occurred: 404 Client Error: Not Found for url: http://127.0.0.1:8000/api/usersinvalid-id
+2025-01-19 19:35:25,811 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:35:45,188 - test_logger - ERROR - HTTP error occurred: 404 Client Error: Not Found for url: http://127.0.0.1:8000/api/usersinvalid-id
+2025-01-19 19:36:08,044 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:36:13,277 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:36:18,170 - test_logger - ERROR - HTTP error occurred: 404 Client Error: Not Found for url: http://127.0.0.1:8000/api/usersinvalid-id
+2025-01-19 19:36:26,650 - test_logger - INFO - Test PASS
+2025-01-19 19:36:30,983 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:40:17,347 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:40:17,364 - test_logger - ERROR - HTTP error occurred: 404 Client Error: Not Found for url: http://127.0.0.1:8000/api/usersinvalid-id
+2025-01-19 19:40:17,364 - test_logger - INFO - Test PASS
+2025-01-19 19:40:17,364 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:40:55,258 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:41:15,803 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:41:45,155 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:41:50,944 - test_logger - ERROR - HTTP error occurred: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8000/api/users/invalid-id/
+2025-01-19 19:41:58,622 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:42:14,416 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:42:14,616 - test_logger - ERROR - HTTP error occurred: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8000/api/users/invalid-id/
+2025-01-19 19:42:14,616 - test_logger - INFO - Test PASS
+2025-01-19 19:42:14,617 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:51:30,980 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:51:31,052 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/514/
+2025-01-19 19:51:31,053 - test_logger - INFO - Test FAIL
+2025-01-19 19:51:31,053 - test_logger - INFO - Delete user
+2025-01-19 19:51:31,110 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:52:02,838 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:52:02,903 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/515/
+2025-01-19 19:52:02,903 - test_logger - INFO - Test PASS
+2025-01-19 19:52:02,904 - test_logger - INFO - Delete user
+2025-01-19 19:52:02,980 - test_logger - INFO - *** Test Finished ***
+2025-01-19 19:52:40,267 - test_logger - INFO - *** Starting test_get_user_with_invalid_id ***
+2025-01-19 19:52:40,329 - test_logger - ERROR - HTTP error occurred: 401 Client Error: Unauthorized for url: http://127.0.0.1:8000/api/users/516/
+2025-01-19 19:52:40,330 - test_logger - INFO - Test PASS
+2025-01-19 19:52:40,330 - test_logger - INFO - Delete user
+2025-01-19 19:52:40,365 - test_logger - INFO - *** Test Finished ***
